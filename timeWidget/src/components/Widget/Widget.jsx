@@ -24,7 +24,7 @@ export default function Widget() {
   }
 
   async function getCurrentTimeData(lngLat) {
-    const data = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lngLat[0]}&lon=${lngLat[1]}&appid=d845dd9a8ba123246f1b29ec1565a10a&units=metric&lang=es`)
+    const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lngLat[0]}&lon=${lngLat[1]}&appid=d845dd9a8ba123246f1b29ec1565a10a&units=metric&lang=es`)
     setCurentTimedata(data.data)
   }
   async function getTimeDataWeekly(lngLat) {
