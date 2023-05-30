@@ -13,8 +13,6 @@ export default function Widget() {
   Geocode.setApiKey(import.meta.env.VITE_API_GOOGLE_KEY)
   Geocode.setLanguage("es")
   Geocode.setRegion("ar")
-  console.log(import.meta.env.VITE_API_GOOGLE_KEY)
-  console.log(import.meta.env.VITE_API_WEATHER)
 
   const [currenttimedata, setCurentTimedata] = useState()
   const [weeklytimedata, setWeeklytimedata] = useState()
