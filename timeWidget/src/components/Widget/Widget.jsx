@@ -4,14 +4,15 @@ import "./Widget.css"
 import axios from 'axios'
 import Geocode from "react-geocode";
 import Card from '../Card/Card';
-Geocode.setApiKey("AIzaSyBQLYjgPyEu2nXx4_ddNcpL4IAgXwlYIQA")
-Geocode.setLanguage("es")
-Geocode.setRegion("ar")
+
 
 // import { prueba5Dyas, pruebaCurrentTime, pruebaLocalizacion } from "../prueba";
 
 
 export default function Widget() {
+  Geocode.setApiKey(import.meta.env.VITE_API_GOOGLE_KEY)
+  Geocode.setLanguage("es")
+  Geocode.setRegion("ar")
 
   const [currenttimedata, setCurentTimedata] = useState()
   const [weeklytimedata, setWeeklytimedata] = useState()
@@ -24,11 +25,11 @@ export default function Widget() {
   }
 
   async function getCurrentTimeData(lngLat) {
-    const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lngLat[0]}&lon=${lngLat[1]}&appid=d845dd9a8ba123246f1b29ec1565a10a&units=metric&lang=es`)
+    const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lngLat[0]}&lon=${lngLat[1]}&appid=${import.meta.env.VITE_API_WEATHER}&units=metric&lang=es`)
     setCurentTimedata(data.data)
   }
   async function getTimeDataWeekly(lngLat) {
-    const data = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lngLat[0]}&lon=${lngLat[1]}&cnt=4&appid=d845dd9a8ba123246f1b29ec1565a10a&units=metric&lang=es`)
+    const data = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lngLat[0]}&lon=${lngLat[1]}&cnt=4&appid=${import.meta.env.VITE_API_WEATHER}&units=metric&lang=es`)
     setWeeklytimedata(data.data)
 
 
